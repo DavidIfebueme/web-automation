@@ -9,10 +9,8 @@ text_body = extract_text("admission_list.pdf")
 
 
 # JAMB regnumber regex
-jamb_numbers = []
-jamb_number_pattern = re.compile(r'^(?:[2][0-9]{3})(?:[0-9]{7}[A-Z]{3}|[0-9]{5}[A-Z]{5})$')
+jamb_number_pattern = re.compile(r'\b\d{12}[A-Z]{2}\b')
 
-jamb_number = jamb_number_pattern.findall()
-jamb_numbers.append(jamb_number)
+jamb_numbers = jamb_number_pattern.findall(text_body)
 print(jamb_numbers)
 
